@@ -28,7 +28,7 @@ function addPostToBackend(post) {
 
 function addPostToList(post) {
   let postList = document.getElementById("postList");
-  let newPost = document.createElement("li");
+  // let newPost = document.createElement("li");
 
    // Create a container div for the note card
   const noteCard = document.createElement("div");
@@ -47,8 +47,11 @@ function addPostToList(post) {
     deletePostFromBackend(post.id, newPost);
   });
 
-  postList.appendChild(postContent);
-  newPost.appendChild(deleteButton);
+  noteCard.appendChild(postContent);
+  noteCard.appendChild(deleteButton);
+
+  postList.appendChild(noteCard);
+  // newPost.appendChild(deleteButton);
 }
 
 function deletePostFromBackend(postID, postElement) {
