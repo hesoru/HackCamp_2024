@@ -30,7 +30,7 @@ function addPostToList(post) {
   let postList = document.getElementById("postList");
   let newPost = document.createElement("li");
 
-  newPost.textContent = post.Post;
+  newPost.textContent = post.post;
 
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "Delete";
@@ -68,7 +68,7 @@ function fetchPosts() {
         postList.innerHTML = ""; // Clear the existing list
         posts.forEach((post) => {
             const newPost = document.createElement("li");
-            newPost.textContent = post.Post; // Add Post to the list
+            newPost.textContent = post.post; // Add Post to the list
 
             const deleteButton = document.createElement("button");
             deleteButton.textContent = "Delete";
