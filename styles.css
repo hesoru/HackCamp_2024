@@ -54,4 +54,38 @@ button:hover {
 ul {
     margin-top: 20px;
     list-style-type: none;
+    padding: 0;
+}
+
+.note-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.note-card p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+    flex: 1;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
 }
