@@ -12,7 +12,7 @@ function handlePostSubmission(event) {
 }
 
 function addPostToBackend(post) {
-  fetch("http://localhost:3000/posts", {
+  fetch("https://hackcamp-2024.onrender.com/posts", {
     method: "POST",
     headers: {
       "Content-Type" : "application/json"
@@ -44,7 +44,7 @@ function addPostToList(post) {
 }
 
 function deletePostFromBackend(postID, postElement) {
-  fetch(`http://localhost:3000/posts/${postID}`, {
+  fetch(`https://hackcamp-2024.onrender.com/posts/${postID}`, {
     method: "DELETE"
   })
   .then(() => {
@@ -61,7 +61,7 @@ document
 window.addEventListener("DOMContentLoaded", fetchPosts);
 
 function fetchPosts() {
-    fetch("http://localhost:3000/posts") // Send a GET request to the server
+    fetch("https://hackcamp-2024.onrender.com/posts") // Send a GET request to the server
     .then((response) => response.json()) // Convert the response to JSON
     .then((posts) => {
         const postList = document.getElementById("postList");
