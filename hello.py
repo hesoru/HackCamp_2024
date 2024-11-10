@@ -1,1 +1,0 @@
-printf("Hello, Ore's Commit")
