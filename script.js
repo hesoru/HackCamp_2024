@@ -30,17 +30,25 @@ function addPostToList(post) {
   let postList = document.getElementById("postList");
   let newPost = document.createElement("li");
 
-  newPost.textContent = post.post;
+   // Create a container div for the note card
+  const noteCard = document.createElement("div");
+  noteCard.className = "note-card";
+
+  // Create a paragraph element for the post content
+  const postContent = document.createElement("p");
+  postContent.textContent = post.post;
+
+  // newPost.textContent = post.post;
 
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "Delete";
-
+  deleteButton.className = "delete-button";
   deleteButton.addEventListener("click", function() {
     deletePostFromBackend(post.id, newPost);
   });
 
+  postList.appendChild(postContent);
   newPost.appendChild(deleteButton);
-  postList.appendChild(newPost);
 }
 
 function deletePostFromBackend(postID, postElement) {
