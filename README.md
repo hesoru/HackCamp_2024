@@ -1,3 +1,3 @@
 # HackCamp 2024 Project
 
-## Helena Sokolovska, Oreoluwa Akinwunmi, Ray Lee
+### Helena Sokolovska, Oreoluwa Akinwunmi, Ray Lee
