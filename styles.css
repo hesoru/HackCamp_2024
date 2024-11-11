@@ -74,18 +74,4 @@ ul {
     font-size: 16px;
     color: #333;
     flex: 1;
-}
-
-.delete-button {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-.delete-button:hover {
-    background-color: #c82333;
 } */
