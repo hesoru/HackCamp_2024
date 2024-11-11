@@ -1,12 +1,8 @@
 const express = require("express"); // Import Express
-//import express from "express";
-//  import cors from 'cors'
-const cors = require('cors')
-// import axios from "axios"; // Import CORS middleware
+const cors = require("cors"); // Import CORS middleware
 const app = express(); // Initialize the Express app
 const port = 3000; // Define the port where the server will listen
-//import fs from 'fs'
-//import 'dotenv/config'
+const axios = require('axios');
 require('dotenv').config();
 const fs = require('fs');
 
@@ -18,6 +14,7 @@ const responses = {
     429: 'Maximum number of concurrent jobs reached. Please wait for some requests to complete.',
     500: 'Something went wrong! Please contact support@symbl.ai'
 }
+
 
 // Use CORS to allow requests from the frontend
 app.use(cors());
@@ -52,19 +49,19 @@ app.delete("/posts/:id", (request, response) => {
     response.sendStatus(200); // OK status
 });
 
-// const authOptions = {
-//     method: 'post',
-//     url: 'https://api.symbl.ai/oauth2/token:generate',
-//     data: {
-//         type: 'application',
-//         appId: process.env.APP_ID,
-//         appSecret: process.env.APP_SECRET
-//     },
-//     headers: {
-//         'Content-Type': 'application/json'
-//     }
-// };
-// //const webhookUrl = WEBHOOK_URL;
+const authOptions = {
+    method: 'post',
+    url: 'https://api.symbl.ai/oauth2/token:generate',
+    data: {
+        type: 'application',
+        appId: process.env.APP_ID,
+        appSecret: process.env.APP_SECRET
+    },
+    headers: {
+        'Content-Type': 'application/json'
+    }
+};
+//const webhookUrl = WEBHOOK_URL;
 
 
 // const params = {
@@ -82,7 +79,7 @@ app.delete("/posts/:id", (request, response) => {
 //         return  JSON.stringify(response.data, null, 2)
 //     }).then (token => {
 
-//     const audioFileStream = fs.createReadStream('/upload-audio/recorded_audio.wav');
+//     const audioFileStream = fs.createReadStream('');
 
 //     const audioOption = {
 //         url: 'https://api.symbl.ai/v1/process/audio',

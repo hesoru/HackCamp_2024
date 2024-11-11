@@ -1,4 +1,5 @@
-const AudioRecorder = require("./AudioRecorder.ts") // Import Express
+import AudioRecorder from './AudioRecorder.js'; // Ensure you're importing the compiled JavaScript file, not the TypeScript one.
+
 // import AudioRecorder from "AudioRecorder.js";
 
 function handlePostSubmission(event) {
@@ -64,12 +65,15 @@ document
 
 document
   .getElementById("startButton")
-  .addEventListener("click", () => recorder.startRecordingAudio());
+  .addEventListener("click", () => {
+    console.log('start is clicked')
+    recorder.startRecording()});
 
 document
   .getElementById("stopButton")
   .addEventListener("click", () => recorder.stopRecording());
 
+ 
 window.addEventListener("DOMContentLoaded", fetchPosts);
 
 function fetchPosts() {

@@ -7,6 +7,7 @@ export default class AudioRecorder {
    // private startRecording: any
     // private stopRecording: any
     // private startRecording: any
+    
 
     constructor() {
     
@@ -14,9 +15,13 @@ export default class AudioRecorder {
         this.stopButton = document.getElementById("stopButton");
         this.recordingTimeMS = 5000;
 
-        // Bind methods
-        this.startRecording = this.startRecording.bind(this);
-        this.stopRecording = this.stopRecording.bind(this);
+       // Bind methods for start and stop recording to ensure the correct `this` context
+       this.startRecording = this.startRecording.bind(this);
+       this.stopRecording = this.stopRecording.bind(this);
+
+       // Attach event listeners for start and stop buttons
+       this.startButton.addEventListener("click", this.startRecording);
+       this.stopButton.addEventListener("click", this.stopRecording);
     }
 
     // Helper function to log messages
@@ -32,7 +37,7 @@ export default class AudioRecorder {
     // Start recording function
     async startRecordingAudio(stream, lengthInMS) {
         let recorder = new MediaRecorder(stream);
-        let data: any[] = [];
+        let data = [];
 
         recorder.ondataavailable = (event) => data.push(event.data);
         recorder.start();
@@ -99,6 +104,17 @@ export default class AudioRecorder {
             track.stop();
         });
         this.log("Recording stopped.");
+    }
+
+    startRecording() {
+        console.log("Start button clicked");
+        this.start(); // Start recording process
+    }
+
+    // Method to handle the stop recording button click
+    stopRecording() {
+        // Implement stop logic if needed
+        this.stop()
     }
 }
 
