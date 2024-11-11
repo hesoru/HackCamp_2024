@@ -74,7 +74,6 @@ window.addEventListener("DOMContentLoaded", fetchPosts);
 const recorder = new AudioRecorder()
 recorder.startButton.addEventListener("click", () => recorder.startRecording());
 recorder.stopButton.addEventListener("click", () => recorder.stopRecording());
-recorder.downloadButton.addEventListener("click", () => recorder.downloadRecording());
 
 function fetchPosts() {
     fetch("https://hackcamp-2024.onrender.com/posts") // Send a GET request to the server
