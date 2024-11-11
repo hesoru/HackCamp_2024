@@ -64,16 +64,15 @@ function deletePostFromBackend(postID, postElement) {
   .catch((error) => console.error("Error deleting post", error));
 }
 
+const recorder = new AudioRecorder();
 // Attach the event listener to the form
 document
   .getElementById("postForm")
-  .addEventListener("submit", handlePostSubmission);
+  .addEventListener("submit", handlePostSubmission)
+  .addEventListener("startButton", () => recorder.startRecording())
+  .addEventListener("stopButton", () => recorder.stopRecording());
 
 window.addEventListener("DOMContentLoaded", fetchPosts);
-
-const recorder = new AudioRecorder()
-recorder.startButton.addEventListener("click", () => recorder.startRecording());
-recorder.stopButton.addEventListener("click", () => recorder.stopRecording());
 
 function fetchPosts() {
     fetch("https://hackcamp-2024.onrender.com/posts") // Send a GET request to the server
