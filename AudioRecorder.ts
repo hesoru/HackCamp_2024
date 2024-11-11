@@ -1,16 +1,14 @@
 class AudioRecorder {
-    private preview: any
     private recording: any
     private startButton: any
     private stopButton: any
     private downloadButton: any
     private logElement: any
     private recordingTimeMS: number
-   // private startRecording: any
+    // private startRecording: any
     private stopRecording: any
 
     constructor() {
-        this.preview = document.getElementById("preview");
         this.recording = document.getElementById("recording");
         this.startButton = document.getElementById("startButton");
         this.stopButton = document.getElementById("stopButton");
@@ -41,7 +39,7 @@ class AudioRecorder {
         recorder.ondataavailable = (event) => data.push(event.data);
         recorder.start();
         this.log(`${recorder.state} for ${lengthInMS / 1000} seconds…`);
-        
+
         let stopped = new Promise((resolve, reject) => {
             recorder.onstop = resolve;
             recorder.onerror = (event) => reject(event);
@@ -65,20 +63,35 @@ class AudioRecorder {
             const recordedChunks = await this.startRecording(stream, this.recordingTimeMS);
 
             const audioBlob = new Blob(recordedChunks, { type: "audio/wav" });
-            const audioUrl = URL.createObjectURL(audioBlob);
-            this.preview.src = audioUrl;
-
-            // Enable download button
-            this.downloadButton.disabled = false;
-            this.downloadButton.href = audioUrl;
-            this.downloadButton.download = "recorded_audio.wav";
-
+            // const audioUrl = URL.createObjectURL(audioBlob);
+            await this.uploadAudio(audioBlob);
             // Stop the media stream tracks after recording
             this.stop(stream);
 
         } catch (error) {
             console.error("Error accessing the microphone:", error);
             this.log("Error: " + error);
+        }
+    }
+
+    async uploadAudio(audioBlob) {
+        try {
+            const formData = new FormData();
+            formData.append("file", audioBlob, "recorded_audio.wav");
+
+            // Send the audio file to the server
+            const response = await fetch("/upload-audio", {
+                method: "POST",
+                body: formData,
+            });
+
+            if (response.ok) {
+                console.log("Audio uploaded successfully!");
+            } else {
+                console.error("Error uploading audio:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Failed to upload audio:", error);
         }
     }
 
@@ -90,6 +103,9 @@ class AudioRecorder {
         this.log("Recording stopped.");
     }
 }
+
+
+
 
 
 
