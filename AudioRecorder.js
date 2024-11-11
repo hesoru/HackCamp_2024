@@ -47,7 +47,7 @@ export default class AudioRecorder {
         //     recorder.onerror = (event) => reject(event);
         // });
         
-        this.recorder.onstop = this.handleStop.bind(this);
+        //this.recorder.onstop = this.handleStop.bind(this);
         this.recorder.start();
         this.log("Recording started...");
 
@@ -98,8 +98,8 @@ export default class AudioRecorder {
         this.log("Recording has been stopped.");
         
         // Reset recorder and stream for next use
-        this.recorder = null;
-        this.stream = null;
+        //this.recorder = null;
+       // this.stream = null;
     }
 
     stopStream() {
