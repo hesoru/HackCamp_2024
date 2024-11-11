@@ -63,15 +63,15 @@ document
   .getElementById("postForm")
   .addEventListener("submit", handlePostSubmission);
 
-document
-  .getElementById("startButton")
-  .addEventListener("click", () => {
-    console.log('start is clicked')
-    recorder.startRecording()});
+// document
+//   .getElementById("startButton")
+//   .addEventListener("click", () => {
+//     console.log('start is clicked')
+//     recorder.startRecording()});
 
-document
-  .getElementById("stopButton")
-  .addEventListener("click", () => recorder.stopRecording());
+// document
+//   .getElementById("stopButton")
+//   .addEventListener("click", () => recorder.stopRecording());
 
  
 window.addEventListener("DOMContentLoaded", fetchPosts);
