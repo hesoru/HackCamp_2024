@@ -1,4 +1,5 @@
-import AudioRecorder from "./AudioRecorder.ts"
+// const AudioRecorder = require("./AudioRecorder.ts") // Import Express
+import AudioRecorder from "AudioRecorder.js";
 
 function handlePostSubmission(event) {
     event.preventDefault(); // Prevent the form from refreshing

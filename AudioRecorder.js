@@ -1,12 +1,12 @@
-class AudioRecorder {
+export default class AudioRecorder {
    
-    private startButton: any
-    private stopButton: any
-    private logElement: any
-    private recordingTimeMS: number
+    // private startButton: any
+    // private stopButton: any
+    // private logElement: any
+    // private recordingTimeMS: number
+   // private startRecording: any
+    // private stopRecording: any
     // private startRecording: any
-    private stopRecording: any
-    private startRecording: any
 
     constructor() {
     

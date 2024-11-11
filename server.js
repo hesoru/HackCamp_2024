@@ -1,10 +1,13 @@
-const express = require("express"); // Import Express
-const cors = require("cors"); // Import CORS middleware
+// const express = require("express"); // Import Express
+import express from "express";
+import cors from 'cors'
+import axios from "axios"; // Import CORS middleware
 const app = express(); // Initialize the Express app
 const port = 3000; // Define the port where the server will listen
-const axios = require('axios');
-require('dotenv').config();
-const fs = require('fs');
+import fs from 'fs'
+import 'dotenv/config'
+// require('dotenv').config();
+// const fs = require('fs');
 
 
 const responses = {
