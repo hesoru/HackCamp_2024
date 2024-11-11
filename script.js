@@ -1,3 +1,5 @@
+import AudioRecorder from "./AudioRecorder.ts"
+
 function handlePostSubmission(event) {
     event.preventDefault(); // Prevent the form from refreshing
 
@@ -53,7 +55,7 @@ function deletePostFromBackend(postID, postElement) {
   .catch((error) => console.error("Error deleting post", error));
 }
 
-const recorder = new AudioRecorder()
+const recorder = new AudioRecorder();
 // Attach the event listener to the form
 document
   .getElementById("postForm")
@@ -61,7 +63,7 @@ document
 
 document
   .getElementById("startButton")
-  .addEventListener("click", () => recorder.startRecording());
+  .addEventListener("click", () => recorder.startRecordingAudio());
 
 document
   .getElementById("stopButton")

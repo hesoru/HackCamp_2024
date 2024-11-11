@@ -1,19 +1,17 @@
 class AudioRecorder {
-    private recording: any
+   
     private startButton: any
     private stopButton: any
-    private downloadButton: any
     private logElement: any
     private recordingTimeMS: number
     // private startRecording: any
     private stopRecording: any
+    private startRecording: any
 
     constructor() {
-        this.recording = document.getElementById("recording");
+    
         this.startButton = document.getElementById("startButton");
         this.stopButton = document.getElementById("stopButton");
-        this.downloadButton = document.getElementById("downloadButton");
-        this.logElement = document.getElementById("log");
         this.recordingTimeMS = 5000;
 
         // Bind methods
@@ -32,7 +30,7 @@ class AudioRecorder {
     }
 
     // Start recording function
-    async startRecording(stream, lengthInMS) {
+    async startRecordingAudio(stream, lengthInMS) {
         let recorder = new MediaRecorder(stream);
         let data: any[] = [];
 
