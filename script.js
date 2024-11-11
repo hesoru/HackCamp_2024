@@ -53,10 +53,19 @@ function deletePostFromBackend(postID, postElement) {
   .catch((error) => console.error("Error deleting post", error));
 }
 
+const recorder = new AudioRecorder()
 // Attach the event listener to the form
 document
   .getElementById("postForm")
   .addEventListener("submit", handlePostSubmission);
+
+document
+  .getElementById("startButton")
+  .addEventListener("click", () => recorder.startRecording());
+
+document
+  .getElementById("stopButton")
+  .addEventListener("click", () => recorder.stopRecording());
 
 window.addEventListener("DOMContentLoaded", fetchPosts);
 
