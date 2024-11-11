@@ -28,30 +28,19 @@ function addPostToBackend(post) {
 
 function addPostToList(post) {
   let postList = document.getElementById("postList");
-  // let newPost = document.createElement("li");
+  let newPost = document.createElement("li");
 
-   // Create a container div for the note card
-  const noteCard = document.createElement("div");
-  noteCard.className = "note-card";
-
-  // Create a paragraph element for the post content
-  const postContent = document.createElement("p");
-  postContent.textContent = post.post;
-
-  // newPost.textContent = post.post;
+  newPost.textContent = post.post;
 
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "Delete";
-  deleteButton.className = "delete-button";
+
   deleteButton.addEventListener("click", function() {
     deletePostFromBackend(post.id, newPost);
   });
 
-  noteCard.appendChild(postContent);
-  noteCard.appendChild(deleteButton);
-
-  postList.appendChild(noteCard);
-  // newPost.appendChild(deleteButton);
+  newPost.appendChild(deleteButton);
+  postList.appendChild(newPost);
 }
 
 function deletePostFromBackend(postID, postElement) {
@@ -67,12 +56,7 @@ function deletePostFromBackend(postID, postElement) {
 // Attach the event listener to the form
 document
   .getElementById("postForm")
-  .addEventListener("submit", handlePostSubmission)
-
-const recorder = new AudioRecorder()
-recorder.startButton.addEventListener("click", () => recorder.startRecording());
-recorder.stopButton.addEventListener("click", () => recorder.stopRecording());
-recorder.downloadButton.addEventListener("click", () => recorder.downloadRecording());
+  .addEventListener("submit", handlePostSubmission);
 
 window.addEventListener("DOMContentLoaded", fetchPosts);
 
